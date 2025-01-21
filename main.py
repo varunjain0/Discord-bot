@@ -33,8 +33,8 @@ async def on_message(message):
             await message.delete()
 
             # Notify the user
-            warning_message = f"{message.author.mention}, Bengali text is not allowed in this server."
-            await message.channel.send(warning_message)
+            warning_message = f"{message.author.mention}, chup nengta kuttar baccha"
+await message.channel.send(warning_message)
         except discord.Forbidden:
             print("Bot doesn't have permission to delete messages.")
         except discord.HTTPException as e:
