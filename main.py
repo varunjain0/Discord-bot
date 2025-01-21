@@ -1,7 +1,7 @@
 import discord
 import re
 import os
-from keep_alive import keep_alive 
+from keep_alive import keep_alive
 
 # Bot Token from Replit Secrets
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -34,12 +34,13 @@ async def on_message(message):
 
             # Notify the user
             warning_message = f"{message.author.mention}, chup nengta kuttar baccha"
-await message.channel.send(warning_message)
+            await message.channel.send(warning_message)
         except discord.Forbidden:
             print("Bot doesn't have permission to delete messages.")
         except discord.HTTPException as e:
-            print(f"Failed to delete message: {e}")
-
+            print(f"Failed to delete message or send warning: {e}")
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
 
 # Start the web server
 keep_alive()
